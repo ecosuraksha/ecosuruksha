@@ -1,0 +1,562 @@
+/*
+	EcoSuraksha custom additions
+	Loaded after main.css (Twenty by HTML5 UP). Only adds components the template does not have.
+*/
+
+:root {
+	--es-teal: #3fb1a3;
+	--es-teal-dark: #2d8a7e;
+	--es-teal-light: #e8f6f4;
+	--es-navy: #104a7a;
+	--es-text: #4a5557;
+	--es-line: #dfe7e6;
+	--es-warn-bg: #fff8e6;
+	--es-warn-line: #f0d48a;
+}
+
+/* ---------- Grid: one-third column ----------
+   The bundled template grid sets col-4 to 20% (five across), so a true
+   three-across layout needs its own class. */
+
+.row > .col-third { width: 33.33333%; }
+
+@media screen and (max-width: 840px) {
+	.row > .col-third { width: 100%; }
+}
+
+/* ---------- Generic helpers ---------- */
+
+.es-lead {
+	font-size: 1.15em;
+	line-height: 1.7em;
+	max-width: 46em;
+	margin: 0 auto 2em auto;
+}
+
+.es-center { text-align: center; }
+
+.es-section-title {
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.es-section-title p {
+	max-width: 42em;
+	margin: 0.75em auto 0 auto;
+}
+
+/* ---------- Stat strip ---------- */
+
+.es-stats {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5em;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+
+.es-stats li {
+	flex: 1 1 11em;
+	max-width: 16em;
+	padding: 1.5em 1em;
+	text-align: center;
+	background: var(--es-teal-light);
+	border-radius: 0.5em;
+}
+
+.es-stats .num {
+	display: block;
+	font-size: 2.2em;
+	font-weight: 900;
+	line-height: 1.1em;
+	color: var(--es-teal-dark);
+}
+
+.es-stats .label {
+	display: block;
+	margin-top: 0.5em;
+	font-size: 0.95em;
+	line-height: 1.4em;
+}
+
+/* ---------- Question cards ("Is it disinfected?" etc.) ---------- */
+
+.es-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(13em, 1fr));
+	gap: 1.5em;
+}
+
+.es-card {
+	padding: 2em 1.75em;
+	text-align: left;
+	background: #fff;
+	border: 1px solid var(--es-line);
+	border-top: 4px solid var(--es-teal);
+	border-radius: 0.4em;
+}
+
+.es-card .es-icon {
+	display: inline-block;
+	width: 2.6em;
+	height: 2.6em;
+	line-height: 2.6em;
+	margin-bottom: 1em;
+	text-align: center;
+	color: #fff;
+	background: var(--es-teal);
+	border-radius: 50%;
+	font-size: 1.1em;
+}
+
+.es-card h3 { margin-bottom: 0.4em; }
+.es-card p { margin-bottom: 0.9em; }
+.es-card .es-meta {
+	font-size: 0.9em;
+	color: var(--es-text);
+	margin-bottom: 1.25em;
+}
+
+.es-card a.es-link {
+	font-weight: 700;
+	color: var(--es-teal-dark);
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
+}
+
+/* ---------- Product cards on home ---------- */
+
+.es-product {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	text-align: left;
+}
+
+/* Show product photos in true colour (the template lays a pattern over .image) */
+.es-product .image:before { display: none; }
+
+.es-product .image.featured img {
+	border-radius: 0.4em;
+	height: 17em;
+	object-fit: cover;
+}
+
+.es-product h3 { margin-bottom: 0.3em; }
+.es-product .es-tagline {
+	font-weight: 700;
+	color: var(--es-teal-dark);
+	margin-bottom: 0.8em;
+}
+
+.es-product ul.es-ticks { margin-bottom: 1.25em; }
+
+ul.es-ticks {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 1.5em 0;
+}
+
+ul.es-ticks li {
+	position: relative;
+	padding: 0.25em 0 0.25em 1.6em;
+	text-align: left;
+}
+
+ul.es-ticks li:before {
+	content: "\f00c";
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	position: absolute;
+	left: 0;
+	top: 0.3em;
+	color: var(--es-teal);
+	font-size: 0.9em;
+}
+
+.es-btn-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75em;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.es-btn-row li { padding: 0; }
+
+.es-product .es-btn-row {
+	flex-direction: column;
+	margin-top: auto;
+}
+
+.es-product .es-btn-row li { width: 100%; }
+
+.es-product .es-btn-row .button {
+	display: block;
+	width: 100%;
+	min-width: 0;
+	text-align: center;
+}
+
+/* ---------- Steps ---------- */
+
+ol.es-steps {
+	counter-reset: es-step;
+	list-style: none;
+	margin: 0 0 1.5em 0;
+	padding: 0;
+	text-align: left;
+}
+
+ol.es-steps li {
+	counter-increment: es-step;
+	position: relative;
+	padding: 0.35em 0 0.9em 3.2em;
+	min-height: 2.6em;
+}
+
+ol.es-steps li:before {
+	content: counter(es-step);
+	position: absolute;
+	left: 0;
+	top: 0.1em;
+	width: 2.2em;
+	height: 2.2em;
+	line-height: 2.2em;
+	text-align: center;
+	font-weight: 900;
+	color: #fff;
+	background: var(--es-teal);
+	border-radius: 50%;
+}
+
+/* ---------- Spec table ---------- */
+
+table.es-spec {
+	width: 100%;
+	margin: 0 0 1.5em 0;
+	border-collapse: collapse;
+	text-align: left;
+	font-size: 0.95em;
+}
+
+table.es-spec th,
+table.es-spec td {
+	padding: 0.7em 0.9em;
+	border-bottom: 1px solid var(--es-line);
+	vertical-align: top;
+}
+
+table.es-spec th {
+	width: 38%;
+	font-weight: 700;
+	color: var(--es-navy);
+	background: var(--es-teal-light);
+}
+
+/* ---------- Product detail blocks (products page) ---------- */
+
+.es-detail {
+	padding: 3em 0;
+	border-bottom: 1px solid var(--es-line);
+	text-align: left;
+}
+
+.es-detail:last-of-type { border-bottom: none; }
+
+.es-detail .es-kicker {
+	display: inline-block;
+	margin-bottom: 0.6em;
+	padding: 0.25em 0.8em;
+	font-size: 0.8em;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--es-teal-dark);
+	background: var(--es-teal-light);
+	border-radius: 2em;
+}
+
+.es-detail h3 { font-size: 1.7em; margin-bottom: 0.4em; }
+.es-detail h4 {
+	margin: 1.6em 0 0.6em 0;
+	font-size: 1.05em;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: var(--es-navy);
+}
+
+.es-detail img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.4em;
+	margin-bottom: 1em;
+}
+
+.es-detail figure { margin: 0 0 1em 0; }
+
+/* Keep the photo in view while reading the long text beside it */
+.es-sticky { position: sticky; top: 5em; }
+
+.es-brochure {
+	margin: 1.25em 0 0 0;
+	font-size: 0.92em;
+}
+
+.es-brochure .icon { margin-right: 0.35em; color: var(--es-teal-dark); }
+.es-brochure a { color: var(--es-teal-dark); font-weight: 700; }
+.es-detail figcaption {
+	font-size: 0.85em;
+	color: var(--es-text);
+	margin-top: -0.5em;
+}
+
+.es-compare {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.95em;
+	text-align: left;
+}
+
+.es-compare th,
+.es-compare td {
+	padding: 0.8em 0.9em;
+	border-bottom: 1px solid var(--es-line);
+	vertical-align: top;
+}
+
+.es-compare thead th {
+	color: #fff;
+	background: var(--es-teal);
+}
+
+.es-compare tbody th {
+	color: var(--es-navy);
+	background: var(--es-teal-light);
+	width: 20%;
+}
+
+.es-table-wrap { overflow-x: auto; }
+
+/* ---------- Callouts ---------- */
+
+.es-note {
+	margin: 1.5em 0;
+	padding: 1.1em 1.4em;
+	text-align: left;
+	font-size: 0.95em;
+	background: var(--es-warn-bg);
+	border-left: 4px solid var(--es-warn-line);
+	border-radius: 0.3em;
+}
+
+.es-note strong { color: var(--es-navy); }
+
+/* ---------- Audience grid ---------- */
+
+.es-audience {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.es-audience li {
+	flex: 1 1 13em;
+	max-width: 15em;
+	padding: 1.4em 1em;
+	text-align: center;
+	background: #fff;
+	border: 1px solid var(--es-line);
+	border-radius: 0.4em;
+}
+
+.es-audience .icon {
+	display: block;
+	margin-bottom: 0.6em;
+	font-size: 1.8em;
+	color: var(--es-teal);
+}
+
+.es-audience strong { display: block; margin-bottom: 0.25em; }
+.es-audience span.small { font-size: 0.88em; }
+
+/* ---------- Services ---------- */
+
+.es-service {
+	display: flex;
+	gap: 1.75em;
+	padding: 2.25em 0;
+	border-bottom: 1px solid var(--es-line);
+	text-align: left;
+}
+
+.es-service:last-of-type { border-bottom: none; }
+
+.es-service .es-badge {
+	flex: 0 0 4.2em;
+	width: 4.2em;
+	height: 4.2em;
+	line-height: 4.2em;
+	text-align: center;
+	font-size: 1.3em;
+	color: #fff;
+	background: var(--es-teal);
+	border-radius: 50%;
+}
+
+.es-service h3 { margin-bottom: 0.4em; }
+.es-service .es-for {
+	font-size: 0.92em;
+	margin-bottom: 0.9em;
+	color: var(--es-text);
+}
+
+.es-service .es-for strong { color: var(--es-navy); }
+
+/* ---------- FAQ ---------- */
+
+.es-faq details {
+	margin-bottom: 0.75em;
+	padding: 0.2em 1.2em;
+	text-align: left;
+	background: #fff;
+	border: 1px solid var(--es-line);
+	border-radius: 0.4em;
+}
+
+.es-faq summary {
+	padding: 0.9em 0;
+	font-weight: 700;
+	color: var(--es-navy);
+	cursor: pointer;
+}
+
+.es-faq details[open] summary { border-bottom: 1px solid var(--es-line); margin-bottom: 0.8em; }
+.es-faq details p { margin-bottom: 1em; }
+
+/* ---------- Contact ---------- */
+
+.es-contact-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.25em;
+	justify-content: center;
+	margin: 0 0 2.5em 0;
+	padding: 0;
+	list-style: none;
+}
+
+.es-contact-cards li {
+	flex: 1 1 14em;
+	max-width: 17em;
+	padding: 1.6em 1em;
+	text-align: center;
+	background: var(--es-teal-light);
+	border-radius: 0.4em;
+}
+
+.es-contact-cards .icon {
+	display: block;
+	margin-bottom: 0.5em;
+	font-size: 1.7em;
+	color: var(--es-teal-dark);
+}
+
+.es-contact-cards strong { display: block; margin-bottom: 0.3em; }
+.es-contact-cards a { color: inherit; font-weight: 700; }
+
+.es-form label {
+	display: block;
+	margin: 0 0 0.4em 0;
+	font-size: 0.9em;
+	font-weight: 700;
+	text-align: left;
+}
+
+.es-form select,
+.es-form input[type="text"],
+.es-form input[type="email"],
+.es-form input[type="tel"],
+.es-form textarea {
+	width: 100%;
+}
+
+/* The template styles text/email inputs only; give tel and select the same look */
+.es-form input[type="tel"],
+.es-form select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background: none;
+	border: solid 1px rgba(124, 128, 129, 0.2);
+	border-radius: 0;
+	color: inherit;
+	display: block;
+	line-height: 1em;
+	padding: 0.75em;
+	outline: 0;
+}
+
+.es-form select {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237c8081' stroke-width='1.5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 0.9em center;
+	padding-right: 2.5em;
+}
+
+.es-form input[type="tel"]:focus,
+.es-form select:focus,
+.es-form input[type="text"]:focus,
+.es-form input[type="email"]:focus,
+.es-form textarea:focus {
+	border-color: var(--es-teal);
+}
+
+.es-form .es-hint {
+	margin-top: 1em;
+	font-size: 0.88em;
+	text-align: left;
+}
+
+/* ---------- Footer ---------- */
+
+#footer .es-footer-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 1.5em;
+	justify-content: center;
+	margin: 0 0 1.25em 0;
+	padding: 0;
+	list-style: none;
+}
+
+#footer .es-footer-links a { text-decoration: none; border-bottom: 1px dotted currentColor; }
+
+#footer .es-footer-contact {
+	margin: 0 0 1em 0;
+	line-height: 1.8em;
+}
+
+#footer .es-footer-contact a { color: inherit; }
+
+/* ---------- Mobile ---------- */
+
+@media screen and (max-width: 840px) {
+	.es-sticky { position: static; }
+}
+
+@media screen and (max-width: 736px) {
+	.es-service { flex-direction: column; gap: 1em; }
+	.es-service .es-badge { flex-basis: auto; }
+	.es-detail { padding: 2em 0; }
+	.es-detail h3 { font-size: 1.45em; }
+	table.es-spec th { width: 42%; }
+}
