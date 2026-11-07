@@ -671,3 +671,24 @@ figure.es-video.portrait video { max-height: 36em; }
 
 /* Email addresses always display in lower case, even inside uppercase buttons */
 .es-lc { text-transform: none; letter-spacing: normal; }
+
+/* Placeholder for a demo video that will be added later */
+.es-detail figure.es-video-slot { max-width: 40em; }
+.es-video-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4em;
+	aspect-ratio: 16 / 9;
+	padding: 1.5em;
+	text-align: center;
+	color: var(--es-navy);
+	background: var(--es-teal-light);
+	border: 2px dashed var(--es-teal-dark);
+	border-radius: 0.5em;
+}
+.es-video-placeholder .icon { font-size: 2.8em; color: var(--es-teal-dark); }
+.es-video-placeholder .icon:before { margin: 0; }
+.es-video-placeholder strong { font-size: 1.15em; }
+.es-video-placeholder span:last-child { font-size: 0.9em; max-width: 28em; }
