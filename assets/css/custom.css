@@ -668,3 +668,6 @@ figure.es-video.portrait video { max-height: 36em; }
 .es-detail .es-photos figure.es-video { margin: 0; }
 .es-detail .es-text .es-hint { margin-top: 1em; font-size: 0.9em; }
 .es-detail .es-btn-row .button { text-align: center; }
+
+/* Email addresses always display in lower case, even inside uppercase buttons */
+.es-lc { text-transform: none; letter-spacing: normal; }
