@@ -710,3 +710,87 @@ figure.es-video.portrait video { max-height: 36em; }
 	.es-brochure-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 	.es-brochure-thumb { width: 10em; }
 }
+
+/* ---------- Language toggle (EN | हिन्दी), fixed top right ---------- */
+
+.es-lang-toggle {
+	position: fixed;
+	top: 0.75em;
+	right: 1.25em;
+	z-index: 10003;
+	display: flex;
+	padding: 3px;
+	background: #fff;
+	border-radius: 2em;
+	box-shadow: 0 1px 6px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.08);
+	font-size: 0.75rem;
+	line-height: 1;
+}
+.es-lang-toggle a {
+	display: block;
+	min-width: 3.4em;
+	padding: 0.6em 0.9em;
+	border: 0;
+	border-radius: 2em;
+	color: #4c5052;
+	font-family: 'Lato', 'Noto Sans Devanagari', 'Nirmala UI', 'Mangal', sans-serif;
+	font-weight: 700;
+	letter-spacing: 0;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.es-lang-toggle a:hover { background: rgba(62, 179, 163, 0.12); color: #2b2f30; }
+.es-lang-toggle a.active,
+.es-lang-toggle a.active:hover { background: #3eb3a3; color: #fff; cursor: default; }
+
+/* Desktop: move the main menu left so it does not sit under the toggle */
+@media screen and (min-width: 841px) {
+	#header nav, #header.alt nav { right: 12.5em; }
+	#header.alt ~ .es-lang-toggle, .es-lang-toggle { top: 0.9em; }
+}
+/* Phone and tablet: compact pill in the title bar */
+@media screen and (max-width: 840px) {
+	.es-lang-toggle { top: 0.55em; right: 0.6em; font-size: 0.72rem; }
+	.es-lang-toggle a { min-width: 3em; padding: 0.55em 0.75em; }
+}
+
+/* ---------- Hindi pages: Devanagari-friendly typography ---------- */
+
+html[lang="hi"] body,
+html[lang="hi"] input,
+html[lang="hi"] select,
+html[lang="hi"] textarea,
+html[lang="hi"] .button,
+html[lang="hi"] input[type="submit"] {
+	font-family: 'Lato', 'Noto Sans Devanagari', 'Nirmala UI', 'Mangal', sans-serif;
+}
+/* Letter-spacing breaks joined Devanagari letters; light weights are hard to read */
+html[lang="hi"] *, html[lang="hi"] *:before, html[lang="hi"] *:after { letter-spacing: 0 !important; }
+html[lang="hi"] body, html[lang="hi"] input, html[lang="hi"] select, html[lang="hi"] textarea {
+	font-weight: 400;
+	line-height: 1.85em;
+}
+html[lang="hi"] h1, html[lang="hi"] h2, html[lang="hi"] h3, html[lang="hi"] h4 { line-height: 1.5; }
+html[lang="hi"] h2 strong, html[lang="hi"] h3 strong, html[lang="hi"] strong, html[lang="hi"] b { font-weight: 700; }
+html[lang="hi"] .button, html[lang="hi"] input[type="submit"] { line-height: 1.4; height: auto; padding-top: 0.9em; padding-bottom: 0.9em; white-space: normal; }
+html[lang="hi"] #header nav ul li { margin-left: 0.6em; }
+html[lang="hi"] #header nav ul li a { line-height: 1.4; padding: 0.45em 0.7em; }
+html[lang="hi"] .es-stats .label, html[lang="hi"] .es-audience .small { line-height: 1.6; }
+html[lang="hi"] table th, html[lang="hi"] table td { line-height: 1.7; }
+@media screen and (max-width: 480px) {
+	html[lang="hi"] body, html[lang="hi"] input, html[lang="hi"] select, html[lang="hi"] textarea { font-size: 13pt; }
+	html[lang="hi"] h2 { font-size: 1.5em; }
+}
+/* Keep Latin digits, units and product codes readable inside Hindi text */
+.es-en { font-family: 'Lato', sans-serif; }
+
+/* Narrow desktops/tablets: make room for the language toggle */
+@media screen and (min-width: 841px) and (max-width: 1240px) {
+	#header nav ul li:has(> a.button) { display: none; }
+	#header nav ul li { margin-left: 0.4em; }
+}
+/* Phones: keep the logo between the menu button and the toggle */
+@media screen and (max-width: 840px) {
+	.es-mobile-logo img { height: auto; max-height: 2em; max-width: calc(100vw - 14em); }
+}
